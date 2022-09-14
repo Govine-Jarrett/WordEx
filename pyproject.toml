@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "Word Extractor"
+version = "0.1.1"
+description = "Takes a sentence loop over each character then ignore punctuation marks and returns a list of words that was extracted from the given sentence"
+authors = ["Govine Jarrett <devgovine@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
