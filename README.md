@@ -1,7 +1,33 @@
-# Word Extractor
 
- Takes a sentence loop over each character then ignore punctuation marks and returns a list of words that was extracted from the given sentence
+<h1>WELCOME TO WORD EXTRACTOR</h1>
 
-## Language Support
+<img src="res/image/WEx_Logo.png">
+
+
+
+<h2>Supported Languages</h2>
 
     - English
+    - Spanish
+    - France
+
+<h2>WORD Ex DESIGN</h2>
+
+<img src="res/image/WEx_Screenshot.png">
+
+
+<h2>How to use Word Ex</h2>
+<p>
+Type or paste a sentence into the text box then press the EXTRACT button to
+convert the given string to a list of words.
+
+To save the extracted words in a text file you must press the SAVE button.
+
+To clear all text from the text box press the CLEAR button.</p>
+
+
+<h4>Why Word Ex was created?</h4>
+<p>This was initially made as a function that was very important for one of my Python CLI applications.
+
+While I was learning Python I discovered this amazing tool called <a href="https://github.com/alejandroautalan/pygubu-designer">Pygubu Designer</a>
+to help speed up the process of creating GUI applications in python, so I decided to try it out and Word Ex was created.
