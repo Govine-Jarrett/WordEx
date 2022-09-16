@@ -6,9 +6,6 @@ from string import  punctuation
 #  For some weird reason I can't get the last word without adding a extra char at the end of sentence.
 #  Think its the index.
 
-# TODO: 
-# - Add methods for none english characters
-# - Ability to ignore or allow digits when initializing class - Use a bool to determine the action 
 
 class WordExtractor:
     """
@@ -18,20 +15,20 @@ class WordExtractor:
 
     """
     def __init__(self) -> None:
-        
+        spanish_french_chars = '¿¡«»€—–-'
         self.space_char = ' '                  # Allowing the Apostrophe mark "'".
-        self.not_allowed_chars = '0123456789' + punctuation.replace("'","") + self.space_char
+        self.not_allowed_chars = '0123456789' +spanish_french_chars+punctuation.replace("'","") + self.space_char
 
             
     
     
-    # Create a method the extract English words
-    def extract_english_words(self, sentence:str) -> list:
+    # Create a method the extract English Spanish and French words
+    def extract_words(self, sentence:str) -> list:
         """
-        Extract all English word(s) from the given sentence. 
+        Extract all English Spanish and French  word(s) from the given sentence. 
 
         Returns:
-            list: all the English word(s) that was extracted.
+            list: all the list of word(s) that was extracted.
         """
         words = [] # Word(s) that was found in sentence
         chars = '' # Character(s) that was collected from the loops
