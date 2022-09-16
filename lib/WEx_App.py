@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 import tkinter as tk
-from tkinter.scrolledtext import ScrolledText
+from tkinter import filedialog, messagebox
 
+from tkinter.scrolledtext import ScrolledText
+from word_extractor import WordExtractor
 
 class WordExApp:
     def __init__(self, master=None):
@@ -14,7 +16,7 @@ class WordExApp:
         
         
         # Build toplevel window
-        self.WExTopLevel.geometry("585x495")
+        self.WExTopLevel.geometry("585x495+355+100")
         self.WExTopLevel.iconphoto(True, self.img_WEx_Logo)
         self.WExTopLevel.resizable(False, False)
         self.WExTopLevel.title("Word Extractor")
@@ -41,8 +43,8 @@ class WordExApp:
         # Adding a scrollable text box the the text frame
         self.SentenceEntryBox = ScrolledText(self.TextFrame)
         # Adding the default text into the scrollable text box 
-        _text_ = " \n\n\n\n\n\t   E N T E R    Y O U R    T E X T    H E R E ."
-        self.SentenceEntryBox.insert("0.0", _text_)
+        self._text_ = "    ENTER    YOUR    TEXT    HERE ."
+        self.SentenceEntryBox.insert("0.0", self._text_)
         
         # Customizing the text frame and scrollable text box 
         self.TextFrame.configure(
@@ -54,7 +56,7 @@ class WordExApp:
         self.SentenceEntryBox.configure(
             blockcursor="false",
             cursor="arrow",
-            font="{Microsoft JhengHei} 14 {}",
+            font="{Microsoft JhengHei} 14",
             foreground="#0e2845",
             height=10,
             insertbackground="#64dd73",
@@ -146,7 +148,7 @@ class WordExApp:
         # App version label
         self.VersionLabel.configure(
             background="#0e2845",
-            font="{Microsoft} 10 {bold}",
+            font="{Microsoft JhengHei UI} 10 {bold}",
             foreground="#64dd73",
             text="V 1 . 1",
         )
@@ -194,14 +196,67 @@ class WordExApp:
     def run(self):
         self.mainwindow.mainloop()
 
+
     def extract_words_to_list(self):
-        pass
+        # Check if the text box is empty
+        text_entered = self.SentenceEntryBox.get('0.0', tk.END )
+        
+        # Getting the first char 
+        first_index = text_entered[0]
+        
+        
+        if len(text_entered) > 0 and first_index != '[':
+            # Remove the newline char from the end of the list before convert to string
+            extracted_words = str(WordExtractor().extract_words(text_entered))
+            
+
+            # Clear the previous string entered
+            self.clear_sentence()
+            
+        
+            # Insert the list of words 
+            self.SentenceEntryBox.insert('0.0', extracted_words)
+
+
 
     def clear_sentence(self):
-        pass
+        self.SentenceEntryBox.delete('0.0', tk.END)
+
+
 
     def save_words_to_file(self):
-        pass
+        # Check if the text box is empty
+        text_entered = self.SentenceEntryBox.get('0.0', tk.END )
+        
+        # Getting the first char 
+        first_index = text_entered[0]
+        
+        
+        if len(text_entered) > 0 and first_index == '[' and text_entered.count(']') == 1:
+            
+            # Creating file dialog to save the extracted words
+            _filename = filedialog.asksaveasfile('w', title='Word Ex - Save Words', defaultextension='.txt') 
+            
+            
+            # Check if the file was given a name before saving
+            if _filename  is not None:
+                _filename.write(self.SentenceEntryBox.get('0.0', tk.END ))
+        
+                # Clear the previous string entered
+                self.clear_sentence()  
+            
+                # Insert the list of words 
+                self.SentenceEntryBox.insert('0.0', self._text_)
+            
+            else:
+                # Tell the user to give the file a name before the file can be saved.
+                give_name_or_cancel = messagebox.askyesno('Word Ex - Not Saved', 'Please give the file a name for it to be saved.\nDo you want to try again ?')
+            
+                if give_name_or_cancel:
+                    self.save_words_to_file()
+            
+        # Let the user now that the entry is empty
+
 
 
 if __name__ == "__main__":
