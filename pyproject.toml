@@ -1,12 +1,13 @@
 [tool.poetry]
-name = "Word Extractor"
+name = "WordEx"
 version = "0.1.1"
-description = "Takes a sentence loop over each character then ignore punctuation marks and returns a list of words that was extracted from the given sentence"
+description = "Extract English, Spanish and French words from a given string then returns a list of the extracted words."
 authors = ["Govine Jarrett <devgovine@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.10"
+
 
 [tool.poetry.dev-dependencies]
 
