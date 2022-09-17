@@ -1,1 +1,0 @@
-['Celebrations', 'and', 'well', 'wishes\n', 'Feliz', 'cumpleaños', 'Happy', 'birthday', '\n', 'Buena', 'suerte', 'Good', 'luck', '\n', 'Bien', 'hecho', 'Well', 'done', '\n', 'Cuídate', 'Take', 'care\n', 'Felicitaciones', 'Congratulations\n', 'Salud', 'Cheers', '\n']
