@@ -9,7 +9,7 @@
 
     - English
     - Spanish
-    - France
+    - French
 
 
 <h1>WordEx Design</h1>
