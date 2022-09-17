@@ -19,7 +19,7 @@ class WordExApp:
         self.WExTopLevel.geometry("585x495+355+100")
         self.WExTopLevel.iconphoto(True, self.img_WEx_Logo)
         self.WExTopLevel.resizable(False, False)
-        self.WExTopLevel.title("Word Extractor")
+        self.WExTopLevel.title("WordEx")
         
         
         # Creating the main frame to place all widgets
@@ -235,7 +235,7 @@ class WordExApp:
         if len(text_entered) > 0 and first_index == '[' and text_entered.count(']') == 1:
             
             # Creating file dialog to save the extracted words
-            _filename = filedialog.asksaveasfile('w', title='Word Ex - Save Words', defaultextension='.txt') 
+            _filename = filedialog.asksaveasfile('w', title='WordEx - Save Words', defaultextension='.txt') 
             
             
             # Check if the file was given a name before saving
@@ -250,7 +250,7 @@ class WordExApp:
             
             else:
                 # Tell the user to give the file a name before the file can be saved.
-                give_name_or_cancel = messagebox.askyesno('Word Ex - Not Saved', 'Please give the file a name for it to be saved.\nDo you want to try again ?')
+                give_name_or_cancel = messagebox.askyesno('WordEx - Not Saved', 'Please give the file a name for it to be saved.\nDo you want to try again ?')
             
                 if give_name_or_cancel:
                     self.save_words_to_file()
