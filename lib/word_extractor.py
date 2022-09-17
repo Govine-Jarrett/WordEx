@@ -15,9 +15,9 @@ class WordExtractor:
 
     """
     def __init__(self) -> None:
-        spanish_french_chars = '¿¡«»€—–-'
-        self.space_char = ' '                  # Allowing the Apostrophe mark "'".
-        self.not_allowed_chars = '0123456789' +spanish_french_chars+punctuation.replace("'","") + self.space_char
+        illegal_punctuation = "\"“”!#$%&()*+,./:;<=>?@[\]^_—`{|}~…¿¡«»€"
+        self.space_char = ' '
+        self.not_allowed_chars = '0123456789' + illegal_punctuation + self.space_char
 
             
     
